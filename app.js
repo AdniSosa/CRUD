@@ -94,7 +94,7 @@ app.get('/usuarios:nombre', (req, res) => {
         //console.log(req.query.nombre)
 })
 
-
+//?BONUS
 app.get('/actualizar', (req, res) => {
     res.send(`
         <!DOCTYPE html>
@@ -118,6 +118,7 @@ app.get('/actualizar', (req, res) => {
         `)
 })
 
+//?BONUS
 app.get('/usuarios/:nombre', (req, res) => {
     const foundUser = usuarios.find(usuario => usuario.nombre === req.query.nameToUpdate);
     res.send(`
@@ -163,7 +164,7 @@ app.post('/usuarios', (req, res) => {
 })
 
 //UPDATE
-//?No logré hacerlo con app.put
+//?BONUS - No logré hacerlo con app.put
  app.post('/usuarios/:nombre', (req, res) => {
     
     const userUpdate = {
@@ -179,7 +180,7 @@ app.post('/usuarios', (req, res) => {
 }) 
 
 //DELETE
-//?No logré hacerlo con app.delete.
+//?BONUS - No logré hacerlo con app.delete.
 app.post('/borrar', (req, res) => {
     const id = parseInt(req.body.id);
     
