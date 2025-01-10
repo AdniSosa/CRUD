@@ -63,3 +63,8 @@ Crea dos rutas nuevas para terminar tu CRUD completo
    - `PUT /usuarios/:nombre`: Actualiza la información de un usuario por nombre.
    - `DELETE /usuarios/:nombre`: Elimina un usuario por nombre.
 Son similares a "POST". Con "PUT" piensa como usar el método `findIndex()` y con el "DELETE" el método `filter()`.
+
+
+
+
+
