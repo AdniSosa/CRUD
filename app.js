@@ -74,6 +74,12 @@ app.get('/usuarios', (req, res) => {
 app.get('/usuarios:nombre', (req, res) => {
     const foundUser = usuarios.find(usuario => usuario.nombre.toLowerCase()=== req.query.nombre);
     //console.log(foundUser);
+    if (!foundUser) {
+        res.status(404).send(` 
+            <h1>Usuario no encontrado</h1> 
+            <a href='/'>Volver a Home</a>
+            `);
+    } else {
     res.send(`
         <!DOCTYPE html>
         <html lang="en">
@@ -92,6 +98,20 @@ app.get('/usuarios:nombre', (req, res) => {
         </html>
         `)
         //console.log(req.query.nombre)
+    }
+})
+
+//CREATE
+app.post('/usuarios', (req, res) => {
+    const newUser = {
+        id: (usuarios[usuarios.length - 1].id) + 1,
+        nombre: req.body.name,
+        edad: req.body.edad,
+        lugarProcedencia: req.body.lugar
+    };
+    usuarios.push(newUser);
+    //console.log(newUser.id)
+    res.redirect('/usuarios');
 })
 
 //?BONUS
@@ -149,19 +169,6 @@ app.get('/usuarios/:nombre', (req, res) => {
 
 })
 
-
-//CREATE
-app.post('/usuarios', (req, res) => {
-    const newUser = {
-        id: (usuarios[usuarios.length - 1].id) + 1,
-        nombre: req.body.name,
-        edad: req.body.edad,
-        lugarProcedencia: req.body.lugar
-    };
-    usuarios.push(newUser);
-    //console.log(newUser.id)
-    res.redirect('/usuarios');
-})
 
 //UPDATE
 //?BONUS - No logré hacerlo con app.put
